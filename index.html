@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H Kishan Singha | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container">
+      <h1>H Kishan Singha</h1>
+      <p class="tagline">My new start of coding — building my path one line at a time.</p>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section fade-in">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="old pic 2023.jpeg" alt="H Kishan Singha" />
+        <p>Hi, I'm Kishan — a student learning to code and exploring the world of programming.
+          Every day is a new start for me, and I’m excited to grow as a developer and problem solver.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section fade-in">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>C</li>
+        <li>C++</li>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Learning More...</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section fade-in">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <!-- Calculator Project -->
+      <div class="project-card">
+        <h3>Calculator</h3>
+        <div class="project-images">
+          <img src="cal pic 1.png" alt="Calculator screenshot 1">
+          <img src="cal pic 2.png" alt="Calculator screenshot 2">
+          <img src="cal pic 3.png" alt="Calculator screenshot 3">
+          <img src="cal pic 4.png" alt="Calculator screenshot 4">
+        </div>
+        <p class="short-desc">A simple calculator built using HTML, CSS, and JavaScript.</p>
+        <p class="full-desc">
+          This project demonstrates basic web development skills by creating a functional calculator.
+          It can perform addition, subtraction, multiplication, and division, and is fully styled 
+          with CSS for a clean interface. Perfect for practicing DOM manipulation and event handling.
+        </p>
+        <button class="toggle-btn">Read More</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== RESUME ===== -->
+  <section id="resume" class="section fade-in">
+    <div class="container">
+      <h2>Resume</h2>
+      <p>Download my resume to learn more about my education and skills.</p>
+      <a href="kishan.pdf" download class="resume-btn">Download Resume</a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section fade-in">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:gassperbot@gmail.com">gassperbot@gmail.com</a></p>
+      <p>Let’s connect and grow together as developers!</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 H Kishan Singha | Made with love and curiosity</p>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Scroll fade-in
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Project "Read More" buttons
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const fullDesc = btn.previousElementSibling;
+        fullDesc.style.display = fullDesc.style.display === 'block' ? 'none' : 'block';
+        btn.textContent = fullDesc.style.display === 'block' ? 'Show Less' : 'Read More';
+      });
+    });
+  </script>
+</body>
+</html>
